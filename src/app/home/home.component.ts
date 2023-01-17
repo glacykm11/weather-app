@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { WheatherMapService } from '../services/wheather-map/wheather-map.service';
+import { WheatherMapService } from '../shared/services/wheather-map/wheather-map.service';
 
 @Component({
   selector: 'app-home',
