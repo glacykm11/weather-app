@@ -6,11 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class KelvinToCelsiusPipe implements PipeTransform {
 
   transform(value: number): number {
-    let grausEmCelsius: number;
-
-    grausEmCelsius = value - 273.15;
-
-    let grausEmCelsiusSemCasaDecimal = Number(grausEmCelsius.toFixed(0));
+    const grausEmCelsius: number = value - 273.15;
+    const grausEmCelsiusSemCasaDecimal = Number(grausEmCelsius.toFixed(0));
 
     return grausEmCelsiusSemCasaDecimal;
   }
