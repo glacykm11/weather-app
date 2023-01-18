@@ -1,5 +1,4 @@
-<p>home works!</p>
-
-<div *ngIf="wheatherInfo$ | async as wheather">
-    {{ wheather.main.temp | kelvinToCelsius}} °C
-</div>
+<ng-container *ngIf="wheatherInfo$ | async as wheather">
+    <app-card-wheather [temperatura]="wheather.main.temp" [cidade]="wheather.name"
+        [sensacaoTermica]="wheather.main.feels_like"></app-card-wheather>
+</ng-container>
