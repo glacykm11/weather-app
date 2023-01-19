@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { WheatherMapService } from '../shared/services/wheather-map/wheather-map.service';
 
 @Component({
@@ -9,11 +8,19 @@ import { WheatherMapService } from '../shared/services/wheather-map/wheather-map
 })
 export class HomeComponent implements OnInit {
 
-  wheatherInfo$!: Observable<any>;
+  wheather!: any;
+  main!: any;
+  description!: any;
 
   constructor(private wheatherMapService: WheatherMapService) { }
 
   ngOnInit() {
-    this.wheatherInfo$ = this.wheatherMapService.getWheatherSlz();
+    this.wheatherMapService.getWheatherSlz().subscribe((res) => {
+      this.wheather = res;
+      const [wheather] = this.wheather.weather;
+      const { main, description } = wheather;
+      this.main = main;
+      this.description = description;
+    })
   }
 }
