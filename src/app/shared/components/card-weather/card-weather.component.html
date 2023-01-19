@@ -1,10 +1,10 @@
 <section class="card">
-    <p class="card__titulo">Clima de {{ cidade }}</p>
+    <p class="card__titulo">Clima</p>
     <section class="card__info">
         <img [src]="alterarIcone(tempo)" />
         <p>{{ temperatura | kelvinToCelsius }}°C</p>
         <p>{{ cidade }}</p>
-        <p>{{ tempo }}: <span>{{ descricao }}</span></p>
+        <p>{{ tempo | translate }}: <span>{{ descricao }}</span></p>
         <p>Sensação térmica: <span>{{ sensacaoTermica | kelvinToCelsius }}°C</span></p>
     </section>
 </section>
