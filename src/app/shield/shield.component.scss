@@ -1,0 +1,92 @@
+.shield {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    position: relative;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border: 10px solid #248eff;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: all 1.5s;
+
+
+    &__cover {
+        position: absolute;
+        width: 180.3px;
+        height: 181px;
+        background-color: #673E69;
+        position: relative;
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+        transition: all 1.5s;
+    }
+}
+
+.cable {
+    position: absolute;
+    width: 10px;
+    height: 130px;
+    top: 11.8rem;
+    left: 5.2rem;
+    background-color: #248eff;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    button {
+        all: unset;
+        height: 3rem;
+        width: 12.5rem;
+        text-align: center;
+        background-color: aqua;
+        border-radius: 8px;
+        color: red;
+        font-size: bold;
+        cursor: pointer;
+    }
+
+    button:disabled {
+        background-color: blue;
+    }
+
+}
+
+.triangle {
+    display: flex;
+    position: absolute;
+    top: 19.5rem;
+    left: 4.3rem;
+}
+
+.line {
+    position: absolute;
+    width: 8px;
+    height: 1.70rem;
+    left: 1rem;
+    background-color: #248eff;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+
+    border-left: 20px solid #248eff;
+    transform: rotate(-225deg);
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+
+    border-right: 20px solid #248eff;
+    transform: rotate(225deg);
+}

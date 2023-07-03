@@ -1,0 +1,16 @@
+<div>
+    <div class="buttons">
+        <button [disabled]="counter == 0" (click)="reduzir()">AUMENTAR</button>
+        <button [disabled]="counter >= 100" (click)="aumentar()">REDUZIR</button>
+    </div>
+
+    <div class="shield">
+        <div [style]="alterarPreenchimentoEscudo()" class="shield__cover"></div>
+        <div class="cable"></div>
+        <div class="triangle">
+            <div class="arrow-left"></div>
+            <div class="line"></div>
+            <div class="arrow-right"></div>
+        </div>
+    </div>
+</div>
