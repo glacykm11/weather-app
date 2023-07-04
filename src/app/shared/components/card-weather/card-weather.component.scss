@@ -1,16 +1,19 @@
 .card {
-    background-color: #cccc;
-    width: 84vw;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 100%;
     border-radius: 24px;
     padding: 16px;
 
     &__titulo {
+        color: var(--text-color);
         font-weight: bold;
         font-size: 24px;
         text-align: center;
     }
 
     &__info {
+        color: var(--text-color);
         display: grid;
         align-items: center;
         justify-items: center;
@@ -24,10 +27,12 @@
     }
 
     p:nth-child(2) {
+        color: var(--text-color);
         font-size: 42px;
     }
 
     p:nth-child(3) {
+        color: var(--text-color);
         font-size: 18px;
         font-weight: bold;
     }

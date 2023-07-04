@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { NavbarModule } from './shared/components/navbar/navbar.module';
+import { SearchModule } from './shared/components/search/search.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { AppComponent } from './app.component';
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    NavbarModule,
+    SearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
