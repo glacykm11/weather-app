@@ -2,6 +2,8 @@
 :root {
   --primary-color: #202B3B;
   --text-color: #7A828F;
+  --secondary-color: #0B131E;
+  --white-color: #DDE0E4;
 }
 
 * {
@@ -11,7 +13,8 @@
 }
 
 body {
-  background-color: #0B131E;
+  background-color: var(--secondary-color);
   font-family: sans-serif;
   height: 100vh;
+  overflow-y: hidden;
 }

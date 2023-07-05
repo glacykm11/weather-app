@@ -1,23 +1,26 @@
 .card {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     width: 100%;
     height: 100%;
     border-radius: 24px;
     padding: 16px;
 
     &__titulo {
-        color: var(--text-color);
+        color: var(--white-color);
         font-weight: bold;
-        font-size: 24px;
-        text-align: center;
+        font-size: 32px;
+    }
+
+    &__temperatura {
+        color: var(--white-color);
+        font-weight: bold;
+        font-size: 48px;
     }
 
     &__info {
         color: var(--text-color);
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        row-gap: 1rem;
+        display: flex;
+        justify-content: space-between;
 
         img {
             object-fit: contain;
@@ -26,14 +29,9 @@
         }
     }
 
-    p:nth-child(2) {
+    &__descricao {
         color: var(--text-color);
-        font-size: 42px;
-    }
-
-    p:nth-child(3) {
-        color: var(--text-color);
-        font-size: 18px;
-        font-weight: bold;
+        font-size: 16px;
+        margin: 8px 0 32px 0;
     }
 }
