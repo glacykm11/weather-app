@@ -3,7 +3,7 @@
         <div>
             <p class="card__titulo">{{ cidade }}</p>
             <p class="card__descricao">{{ tempo | translate }}: <span>{{ descricao }}</span></p>
-            <p class="card__temperatura">{{ temperatura | kelvinToCelsius }}°C</p>
+            <p class="card__temperatura">{{ temperatura | kelvinToCelsius }}°</p>
         </div>
         <div>
             <img [src]="alterarIcone(tempo)" />

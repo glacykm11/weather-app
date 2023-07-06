@@ -1,0 +1,42 @@
+.container {
+    min-height: 244px;
+    background-color: var(--primary-color);
+    border-radius: 24px;
+    padding: 24px;
+    margin: 24px 0 16px 0;
+
+    &__forecast--wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 8px 16px;
+    }
+
+    &__forecast {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    &__temperature {
+        font-size: 24px;
+        color: var(--white-color);
+    }
+
+    &__text {
+        font-size: 16px;
+        color: var(--text-color);
+    }
+
+    &__line {
+        margin: 16px 24px;
+        width: 1px;
+        height: 136px;
+        opacity: 1;
+        background-color: rgb(53, 69, 94);
+        border-radius: 2px;
+    }
+}

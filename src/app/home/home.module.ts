@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { KelvinToCelsiusModule } from '../shared/pipes/kelvin-to-celsius/kelvin-to-celsius.module';
 import { CardWheatherModule } from '../shared/components/card-weather/card-weather.module';
 import { NavbarModule } from '../shared/components/navbar/navbar.module';
+import { TodayForecastModule } from '../shared/components/today-forecast/today-forecast.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavbarModule } from '../shared/components/navbar/navbar.module';
     HomeRoutingModule,
     KelvinToCelsiusModule,
     CardWheatherModule,
-    NavbarModule
+    NavbarModule,
+    TodayForecastModule
   ]
 })
 export class HomeModule { }
