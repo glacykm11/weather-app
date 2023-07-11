@@ -4,6 +4,8 @@ import { OpenMeteoService } from '../shared/services/open-meteo/open-meteo.servi
 import { Observable, Subject, take } from 'rxjs';
 import { Hourly, HourlyUnits, TodayForecast, WeatherForecast } from '../shared/interfaces/weather-forecast.interface';
 import { WeatherInfo } from '../shared/interfaces/weather-info.interface';
+import { Hour, WeatherApiForecast } from '../shared/interfaces/weather-api-forecast.interface';
+import { WeatherApiService } from '../shared/services/weather-api/weather-api.service';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +19,9 @@ export class HomeComponent implements OnInit {
   public description!: any;
   public todayForecasts: TodayForecast[] = [];
   private weatherInfoSlz$!: Observable<WeatherInfo>;
-  private weatherForecastSlz$!: Observable<WeatherForecast>;
+  private weatherApiForecastSlz$!: Observable<WeatherApiForecast>;
 
-  constructor(private wheatherMapService: WheatherMapService, private openMeteoService: OpenMeteoService) { }
+  constructor(private wheatherMapService: WheatherMapService, private openMeteoService: OpenMeteoService, private weatherApiService: WeatherApiService) { }
 
   ngOnInit() {
     this.getWheatherSlz();
@@ -41,25 +43,23 @@ export class HomeComponent implements OnInit {
   }
 
   private getSlzWeatherForecast() {
-    this.weatherForecastSlz$ = this.openMeteoService.getWheatherForecastSlz();
+    this.weatherApiForecastSlz$ = this.weatherApiService.getForecast();
 
-    this.weatherForecastSlz$
+    this.weatherApiForecastSlz$
       .pipe(take(1))
-      .subscribe((response: WeatherForecast) => {
-        const times = response.hourly.time;
-        const temperatures = response.hourly.temperature_2m;
-        const todayForecasts = this.generateTodayForecasts(times, temperatures);
+      .subscribe((response: WeatherApiForecast) => {
+        const hours = response.forecast.forecastday[0].hour;
+        const todayForecasts = this.generateTodayForecasts(hours);
 
         this.todayForecasts = this.todayForecasts.concat(...todayForecasts);
-        console.log(this.todayForecasts);
       })
   }
 
-  private generateTodayForecasts(times: string[], temperatures: number[]): TodayForecast[] {
+  private generateTodayForecasts(hours: Hour[]): TodayForecast[] {
     const todayForecasts = [];
 
     for (let i = 6; i < 22; i += 3) {
-      todayForecasts.push({ "time": times[i].substring(11), "temperature": temperatures[i] })
+      todayForecasts.push({ "time": hours[i].time.substring(11), "temperature": hours[i].temp_c, "icon": hours[i].condition.icon })
     }
 
     return todayForecasts;

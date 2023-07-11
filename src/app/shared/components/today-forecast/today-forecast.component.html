@@ -5,8 +5,7 @@
             <div class="container__forecast">
                 <p class="container__text"><strong>{{ todayForecast.time }}</strong></p>
                 <div>
-                    <img style="width: 64px; height: 64px; object-fit: cover;"
-                        src="../../../../assets/images/raining.png">
+                    <img style="width: 64px; height: 64px; object-fit: cover;" [src]="todayForecast.icon">
                 </div>
                 <p class="container__temperature"><strong>{{ todayForecast.temperature }}°</strong></p>
             </div>

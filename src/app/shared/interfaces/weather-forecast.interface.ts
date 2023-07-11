@@ -14,7 +14,8 @@ export interface WeatherForecast {
 
 export interface TodayForecast {
     time: string,
-    temperature: number
+    temperature: number,
+    icon: string
 }
 
 export interface Daily {
