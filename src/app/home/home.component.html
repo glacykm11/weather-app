@@ -4,5 +4,7 @@
             [sensacaoTermica]="wheather.main.feels_like" [tempo]="main" [descricao]="description"></app-card-weather>
     </ng-container>
 
-    <app-today-forecast></app-today-forecast>
+    <ng-container>
+        <app-today-forecast [todayForecasts]="todayForecasts"></app-today-forecast>
+    </ng-container>
 </div>
