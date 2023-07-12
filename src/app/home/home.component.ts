@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WheatherMapService } from '../shared/services/wheather-map/wheather-map.service';
-import { OpenMeteoService } from '../shared/services/open-meteo/open-meteo.service';
-import { Observable, Subject, take } from 'rxjs';
-import { Hourly, HourlyUnits, TodayForecast, WeatherForecast } from '../shared/interfaces/weather-forecast.interface';
+import { Observable, take } from 'rxjs';
+import { TodayForecast } from '../shared/interfaces/weather-forecast.interface';
 import { WeatherInfo } from '../shared/interfaces/weather-info.interface';
 import { Hour, WeatherApiForecast } from '../shared/interfaces/weather-api-forecast.interface';
 import { WeatherApiService } from '../shared/services/weather-api/weather-api.service';
@@ -21,14 +20,14 @@ export class HomeComponent implements OnInit {
   private weatherInfoSlz$!: Observable<WeatherInfo>;
   private weatherApiForecastSlz$!: Observable<WeatherApiForecast>;
 
-  constructor(private wheatherMapService: WheatherMapService, private openMeteoService: OpenMeteoService, private weatherApiService: WeatherApiService) { }
+  constructor(private wheatherMapService: WheatherMapService, private weatherApiService: WeatherApiService) { }
 
   ngOnInit() {
     this.getWheatherSlz();
     this.getSlzWeatherForecast();
   }
 
-  private getWheatherSlz() {
+  private getWheatherSlz(): void {
     this.weatherInfoSlz$ = this.wheatherMapService.getWheatherSlz();
 
     this.weatherInfoSlz$
@@ -42,7 +41,7 @@ export class HomeComponent implements OnInit {
       })
   }
 
-  private getSlzWeatherForecast() {
+  private getSlzWeatherForecast(): void {
     this.weatherApiForecastSlz$ = this.weatherApiService.getForecast();
 
     this.weatherApiForecastSlz$
