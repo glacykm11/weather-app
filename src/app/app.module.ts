@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { SearchModule } from './shared/components/search/search.module';
-import { TodayForecastComponent } from './shared/components/today-forecast/today-forecast.component';
 
 @NgModule({
   declarations: [
