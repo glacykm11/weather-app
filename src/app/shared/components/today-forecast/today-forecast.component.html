@@ -1,7 +1,7 @@
 <div class="container">
     <p class="container__text"><strong>PREVISÃO DE HOJE</strong></p>
     <div class="container__forecast--wrapper">
-        <ng-container *ngFor="let todayForecast of todayForecasts">
+        <ng-container *ngFor="let todayForecast of todayForecasts; let i = index">
             <div class="container__forecast">
                 <p class="container__text"><strong>{{ todayForecast.time }}</strong></p>
                 <div>
@@ -9,7 +9,7 @@
                 </div>
                 <p class="container__temperature"><strong>{{ todayForecast.temperature }}°</strong></p>
             </div>
-            <div class="container__line" *ngIf="todayForecast.time !==  '21:00'"></div>
+            <div class="container__line" *ngIf="i !== todayForecasts.length - 1"></div>
         </ng-container>
     </div>
 </div>
