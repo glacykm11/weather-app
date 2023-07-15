@@ -1,0 +1,30 @@
+.container__info {
+    min-height: 118px;
+    background-color: var(--primary-color);
+    border-radius: 24px;
+    padding: 24px;
+
+    &--wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    &--icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &--title {
+        font-size: 20px;
+        color: var(--text-color);
+        margin-bottom: 8px;
+    }
+
+    &--value {
+        font-size: 32px;
+        color: var(--secondary-text-color);
+        font-weight: bold;
+        margin-left: 2rem;
+    }
+}
