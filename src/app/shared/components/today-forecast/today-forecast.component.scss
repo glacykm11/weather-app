@@ -26,6 +26,11 @@
         color: var(--white-color);
     }
 
+    &__title {
+        font-size: 14px;
+        color: var(--text-color);
+    }
+
     &__text {
         font-size: 16px;
         color: var(--text-color);
