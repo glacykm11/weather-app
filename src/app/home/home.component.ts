@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   public main!: any;
   public description!: any;
   public todayForecasts: TodayForecast[] = [];
+  public seeMoreButton: boolean = false;
   private weatherInfoSlz$!: Observable<WeatherInfo>;
   private weatherApiForecastSlz$!: Observable<WeatherApiForecast>;
 
@@ -28,7 +29,8 @@ export class HomeComponent implements OnInit {
   }
 
   public teste(event: any) {
-    console.log("Capturando clique botão saiba mais")
+    console.log("Capturando clique botão saiba mais");
+    this.seeMoreButton = !this.seeMoreButton;
   }
 
   private getWheatherSlz(): void {

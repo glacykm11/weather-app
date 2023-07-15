@@ -4,9 +4,15 @@
             [sensacaoTermica]="wheather.main.feels_like" [tempo]="main" [descricao]="description"></app-card-weather>
     </ng-container>
 
-    <ng-container>
-        <app-today-forecast [todayForecasts]="todayForecasts"></app-today-forecast>
-    </ng-container>
+    <app-today-forecast [todayForecasts]="todayForecasts"></app-today-forecast>
 
-    <app-air-conditions (seeMoreEvent)="teste($event)"></app-air-conditions>
+    <app-air-conditions *ngIf="!seeMoreButton" (seeMoreEvent)="teste($event)"></app-air-conditions>
+
+    <div class="cards-info" *ngIf="seeMoreButton">
+        <app-card-info></app-card-info>
+        <app-card-info></app-card-info>
+        <app-card-info></app-card-info>
+        <app-card-info></app-card-info>
+        <app-card-info></app-card-info>
+    </div>
 </div>
