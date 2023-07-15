@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
   constructor(private wheatherMapService: WheatherMapService, private weatherApiService: WeatherApiService) { }
 
   ngOnInit() {
-    this.getWheatherSlz();
-    this.getSlzWeatherForecast();
+    // this.getWheatherSlz();
+    // this.getSlzWeatherForecast();
   }
 
   private getWheatherSlz(): void {

@@ -7,6 +7,7 @@ import { KelvinToCelsiusModule } from '../shared/pipes/kelvin-to-celsius/kelvin-
 import { CardWheatherModule } from '../shared/components/card-weather/card-weather.module';
 import { NavbarModule } from '../shared/components/navbar/navbar.module';
 import { TodayForecastModule } from '../shared/components/today-forecast/today-forecast.module';
+import { AirConditionsModule } from '../shared/components/air-conditions/air-conditions.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TodayForecastModule } from '../shared/components/today-forecast/today-f
     KelvinToCelsiusModule,
     CardWheatherModule,
     NavbarModule,
-    TodayForecastModule
+    TodayForecastModule,
+    AirConditionsModule
   ]
 })
 export class HomeModule { }
