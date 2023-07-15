@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
     // this.getSlzWeatherForecast();
   }
 
+  public teste(event: any) {
+    console.log("Capturando clique botão saiba mais")
+  }
+
   private getWheatherSlz(): void {
     this.weatherInfoSlz$ = this.wheatherMapService.getWheatherSlz();
 
