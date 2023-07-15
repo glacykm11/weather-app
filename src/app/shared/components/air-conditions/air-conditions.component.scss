@@ -1,0 +1,47 @@
+.container {
+    min-height: 260px;
+    background-color: var(--primary-color);
+    border-radius: 24px;
+    padding: 24px;
+    margin: 24px 0 16px 0;
+
+    &__wrapper {
+        display: grid;
+        grid-template: 1fr 1fr/ 1fr 1fr;
+        row-gap: 24px;
+        column-gap: 15%;
+        padding-top: 24px;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: var(--text-color);
+    }
+
+    &__info {
+
+        &--wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        &--icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        &--title {
+            font-size: 20px;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        &--value {
+            font-size: 32px;
+            color: var(--secondary-text-color);
+            font-weight: bold;
+            margin-left: 1.5rem;
+        }
+    }
+}
