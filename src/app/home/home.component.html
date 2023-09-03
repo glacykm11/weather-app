@@ -1,7 +1,7 @@
 <div class="container__home">
-    <ng-container *ngIf="wheather">
-        <app-card-weather [temperatura]="wheather.main.temp" [cidade]="wheather.name"
-            [sensacaoTermica]="wheather.main.feels_like" [tempo]="main" [descricao]="description"></app-card-weather>
+    <ng-container >
+        <app-card-weather *ngFor="let weather of weatherInfoSlz$ | async" [temperatura]="weather.temperature" [cidade]="weather.city"
+         [tempo]="weather.main" [descricao]="weather.description"></app-card-weather>
     </ng-container>
 
     <app-today-forecast [todayForecasts]="todayForecasts"></app-today-forecast>
