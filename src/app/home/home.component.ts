@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   public todayForecasts: TodayForecast[] = [];
   public seeMoreButton: boolean = false;
   public weatherInfoCity$!: Observable<WeatherInitialInfo[]>;
-  private weatherApiForecastSlz$!: Observable<Hour[]>;
+  private weatherApiForecastCity$!: Observable<Hour[]>;
 
   constructor(
     private weatherMapService: WeatherMapService,
@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getWheatherLocation();
-    this.getSlzWeatherForecast();
   }
 
   public seeMoreButtonEvent(event: void) {
@@ -39,18 +38,20 @@ export class HomeComponent implements OnInit {
       (position: Location) => {
         this.weatherInfoCity$ =
           this.weatherMapService.getWheatherCity(position);
+        this.getCityWeatherForecast(position);
       },
       (error) => {
         this.weatherInfoCity$ = this.weatherMapService.getWheatherCity();
+        this.getCityWeatherForecast();
         console.error(error);
       }
     );
   }
 
-  private getSlzWeatherForecast(): void {
-    this.weatherApiForecastSlz$ = this.weatherApiService.getForecast();
+  private getCityWeatherForecast(position?: Location): void {
+    this.weatherApiForecastCity$ = this.weatherApiService.getForecast(position);
 
-    this.weatherApiForecastSlz$.pipe(take(1)).subscribe((response: Hour[]) => {
+    this.weatherApiForecastCity$.pipe(take(1)).subscribe((response: Hour[]) => {
       const hours = response;
       this.generateTodayForecasts(hours);
     });
