@@ -1,18 +1,24 @@
 <div class="container__home">
-    <ng-container >
-        <app-card-weather *ngFor="let weather of weatherInfoSlz$ | async" [temperatura]="weather.temperature" [cidade]="weather.city"
-         [tempo]="weather.main" [descricao]="weather.description"></app-card-weather>
-    </ng-container>
+  <app-card-weather
+    *ngFor="let weather of weatherInfoSlz$ | async"
+    [temperatura]="weather.temperature"
+    [cidade]="weather.city"
+    [tempo]="weather.main"
+    [descricao]="weather.description"
+  ></app-card-weather>
 
-    <app-today-forecast [todayForecasts]="todayForecasts"></app-today-forecast>
+  <app-today-forecast [todayForecasts]="todayForecasts"></app-today-forecast>
 
-    <app-air-conditions *ngIf="!seeMoreButton" (seeMoreEvent)="teste($event)"></app-air-conditions>
+  <app-air-conditions
+    *ngIf="!seeMoreButton"
+    (seeMoreEvent)="teste($event)"
+  ></app-air-conditions>
 
-    <div class="cards-info" *ngIf="seeMoreButton">
-        <app-card-info></app-card-info>
-        <app-card-info></app-card-info>
-        <app-card-info></app-card-info>
-        <app-card-info></app-card-info>
-        <app-card-info></app-card-info>
-    </div>
+  <div class="cards-info" *ngIf="seeMoreButton">
+    <app-card-info></app-card-info>
+    <app-card-info></app-card-info>
+    <app-card-info></app-card-info>
+    <app-card-info></app-card-info>
+    <app-card-info></app-card-info>
+  </div>
 </div>
