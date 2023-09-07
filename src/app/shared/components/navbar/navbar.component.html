@@ -1,23 +1,35 @@
 <aside class="navbar">
-    <div class="navbar__umbrella">
-        <img src="../../../../assets/images/umbrella.png" alt="">
-    </div>
-    <div class="navbar__icons">
-        <article>
-            <img class="icon" src="../../../../assets/images/weather-icon.svg" alt="">
-            <p class="navbar__text">Tempo</p>
-        </article>
-        <article>
-            <img class="icon" src="../../../../assets/images/cities-icon.svg" alt="">
-            <p class="navbar__text">Cidades</p>
-        </article>
-        <article>
-            <img class="icon" src="../../../../assets/images/map-icon.svg" alt="">
-            <p class="navbar__text">Mapa</p>
-        </article>
-        <article>
-            <img class="icon" src="../../../../assets/images/settings-icon.svg" alt="">
-            <p class="navbar__text">Configurações</p>
-        </article>
-    </div>
+  <div class="navbar__umbrella" routerLink="/">
+    <img src="../../../../assets/images/umbrella.png" alt="" />
+  </div>
+  <div class="navbar__icons">
+    <article routerLink="/">
+      <img
+        class="icon"
+        src="../../../../assets/images/weather-icon.svg"
+        alt=""
+      />
+      <p class="navbar__text">Tempo</p>
+    </article>
+    <article routerLink="/cities">
+      <img
+        class="icon"
+        src="../../../../assets/images/cities-icon.svg"
+        alt=""
+      />
+      <p class="navbar__text">Cidades</p>
+    </article>
+    <article routerLink="/map">
+      <img class="icon" src="../../../../assets/images/map-icon.svg" alt="" />
+      <p class="navbar__text">Mapa</p>
+    </article>
+    <article routerLink="/settings">
+      <img
+        class="icon"
+        src="../../../../assets/images/settings-icon.svg"
+        alt=""
+      />
+      <p class="navbar__text">Configurações</p>
+    </article>
+  </div>
 </aside>
