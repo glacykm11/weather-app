@@ -15,11 +15,10 @@ export interface WeatherInfo {
 }
 
 export interface WeatherInitialInfo {
-  id: number;
-  main: string;
   description: string;
   temperature: number;
   city: string;
+  icon: string;
 }
 
 export interface Sys {

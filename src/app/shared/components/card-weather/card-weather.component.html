@@ -1,12 +1,12 @@
 <section class="card">
-    <section class="card__info">
-        <div>
-            <p class="card__titulo">{{ cidade }}</p>
-            <p class="card__descricao">{{ tempo | translate }}: <span>{{ descricao }}</span></p>
-            <p class="card__temperatura">{{ temperatura | kelvinToCelsius }}°</p>
-        </div>
-        <div>
-            <img [src]="alterarIcone(tempo)" />
-        </div>
-    </section>
+  <section class="card__info">
+    <div>
+      <p class="card__titulo">{{ cidade }}</p>
+      <p class="card__descricao">{{ descricao }}</p>
+      <p class="card__temperatura">{{ temperatura }}°C</p>
+    </div>
+    <div>
+      <img [src]="tempo" />
+    </div>
+  </section>
 </section>

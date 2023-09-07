@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { WheatherMapService } from '../shared/services/wheather-map/wheather-map.service';
+import { WeatherMapService } from '../shared/services/wheather-map/weather-map.service';
 import { Observable, take } from 'rxjs';
 import { TodayForecast } from '../shared/interfaces/weather-forecast.interface';
 import { Hour } from '../shared/interfaces/weather-api-forecast.interface';
 import { WeatherApiService } from '../shared/services/weather-api/weather-api.service';
 import { WeatherInitialInfo } from '../shared/interfaces/weather-info.interface';
+import { LocationService } from '../shared/services/location/location.service';
+import { Location } from '../shared/interfaces/location.interface';
 
 @Component({
   selector: 'app-home',
@@ -12,30 +14,37 @@ import { WeatherInitialInfo } from '../shared/interfaces/weather-info.interface'
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public wheather!: any;
-  public main!: any;
-  public description!: any;
   public todayForecasts: TodayForecast[] = [];
   public seeMoreButton: boolean = false;
-  public weatherInfoSlz$!: Observable<WeatherInitialInfo[]>;
+  public weatherInfoCity$!: Observable<WeatherInitialInfo[]>;
   private weatherApiForecastSlz$!: Observable<Hour[]>;
 
   constructor(
-    private wheatherMapService: WheatherMapService,
-    private weatherApiService: WeatherApiService
+    private weatherMapService: WeatherMapService,
+    private weatherApiService: WeatherApiService,
+    private locationService: LocationService
   ) {}
 
   ngOnInit() {
-    this.getWheatherSlz();
+    this.getWheatherLocation();
     this.getSlzWeatherForecast();
   }
 
-  public seeMoreButtonEvent(event: any) {
+  public seeMoreButtonEvent(event: void) {
     this.seeMoreButton = !this.seeMoreButton;
   }
 
-  private getWheatherSlz(): void {
-    this.weatherInfoSlz$ = this.wheatherMapService.getWheatherSlz();
+  private getWheatherLocation(): void {
+    this.locationService.getPosition().then(
+      (position: Location) => {
+        this.weatherInfoCity$ =
+          this.weatherMapService.getWheatherCity(position);
+      },
+      (error) => {
+        this.weatherInfoCity$ = this.weatherMapService.getWheatherCity();
+        console.error(error);
+      }
+    );
   }
 
   private getSlzWeatherForecast(): void {

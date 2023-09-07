@@ -1,9 +1,9 @@
 <div class="container__home">
   <app-card-weather
-    *ngFor="let weather of weatherInfoSlz$ | async"
+    *ngFor="let weather of weatherInfoCity$ | async"
     [temperatura]="weather.temperature"
     [cidade]="weather.city"
-    [tempo]="weather.main"
+    [tempo]="weather.icon"
     [descricao]="weather.description"
   ></app-card-weather>
 
