@@ -1,1 +1,8 @@
-<input type="search" id="site-search" name="q" placeholder="Procure por cidades">
+<input
+  type="search"
+  id="site-search"
+  name="q"
+  placeholder="Procure por cidades"
+  [formControl]="cities"
+  (click)="navigateToCitiesPage()"
+/>
