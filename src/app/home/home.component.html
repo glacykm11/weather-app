@@ -11,7 +11,7 @@
 
   <app-air-conditions
     *ngIf="!seeMoreButton"
-    (seeMoreEvent)="teste($event)"
+    (seeMoreEvent)="seeMoreButtonEvent($event)"
   ></app-air-conditions>
 
   <div class="cards-info" *ngIf="seeMoreButton">
