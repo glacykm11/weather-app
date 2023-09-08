@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
         // this.getOthersWeatherInfo$ =
         //   this.weatherApiService.getOthersWeatherInfo(position);
         this.weatherApiService.getOthersWeatherInfo(position).subscribe((x) => {
-          console.log(x);
           this.teste(x);
         });
       },
@@ -60,20 +59,26 @@ export class HomeComponent implements OnInit {
   }
 
   teste(x: any) {
-    const y = [];
+    let y: any = [];
     const [otherWeatherInfo] = x;
-    chanceOfRain: 85;
-    feelsLike: 30.1;
-    humidity: 79;
-    pressure: 1012;
-    sunset: '05:57 PM';
-    uv: 1;
-    visibility: 10;
-    wind: 20.2;
+    // {
+    //   chanceOfRain: 85;
+    //   feelsLike: 30.1;
+    //   humidity: 79;
+    //   pressure: 1012;
+    //   sunset: '05:57 PM';
+    //   uv: 1;
+    //   visibility: 10;
+    //   wind: 20.2
+    // }
 
-    for (let i = 0; i < x.length; i++) {}
-
-    console.log(otherWeatherInfo);
+    const titles = ['title 1','title 2', 'title 3', 'title 4', 'title 5', 'title 6', 'title 7', 'title 8'];
+    const keys = Object.keys(otherWeatherInfo);
+    const values = Object.values(otherWeatherInfo);
+    console.log(keys, values)
+    const iconsPaths = ['icon 1','icon 2', 'icon 3', 'icon 4', 'icon 5', 'icon 6', 'icon 7', 'icon 8'] ;
+    // [{title: '', icon: '', value: ''}]
+    otherWeatherInfo
   }
 
   private getOthersWeatherInfo() {}
