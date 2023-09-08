@@ -15,9 +15,13 @@ import { Location } from '../shared/interfaces/location.interface';
 })
 export class HomeComponent implements OnInit {
   public todayForecasts: TodayForecast[] = [];
+  public othersWeatherInfo = [];
   public seeMoreButton: boolean = false;
   public weatherInfoCity$!: Observable<WeatherInitialInfo[]>;
   private weatherApiForecastCity$!: Observable<Hour[]>;
+  public getOthersWeatherInfo$!: Observable<any>;
+  private location!: Location;
+  public x!: any;
 
   constructor(
     private weatherMapService: WeatherMapService,
@@ -27,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getWheatherLocation();
+    //this.getOthersWeatherInfo();
   }
 
   public seeMoreButtonEvent(event: void) {
@@ -39,6 +44,12 @@ export class HomeComponent implements OnInit {
         this.weatherInfoCity$ =
           this.weatherMapService.getWheatherCity(position);
         this.getCityWeatherForecast(position);
+        // this.getOthersWeatherInfo$ =
+        //   this.weatherApiService.getOthersWeatherInfo(position);
+        this.weatherApiService.getOthersWeatherInfo(position).subscribe((x) => {
+          console.log(x);
+          this.teste(x);
+        });
       },
       (error) => {
         this.weatherInfoCity$ = this.weatherMapService.getWheatherCity();
@@ -47,6 +58,25 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  teste(x: any) {
+    const y = [];
+    const [otherWeatherInfo] = x;
+    chanceOfRain: 85;
+    feelsLike: 30.1;
+    humidity: 79;
+    pressure: 1012;
+    sunset: '05:57 PM';
+    uv: 1;
+    visibility: 10;
+    wind: 20.2;
+
+    for (let i = 0; i < x.length; i++) {}
+
+    console.log(otherWeatherInfo);
+  }
+
+  private getOthersWeatherInfo() {}
 
   private getCityWeatherForecast(position?: Location): void {
     this.weatherApiForecastCity$ = this.weatherApiService.getForecast(position);

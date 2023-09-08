@@ -34,4 +34,32 @@ export class WeatherApiService {
       )
       .pipe(map((forecast) => forecast.forecast.forecastday[0].hour));
   }
+
+  public getOthersWeatherInfo(position: Location | undefined): Observable<any> {
+    const latitude = position?.latitude
+      ? position.latitude.toString()
+      : LAT_SLZ;
+    const longitude = position?.longitude
+      ? position.longitude.toString()
+      : LON_SLZ;
+
+    return this.httpClient
+      .get<WeatherApiForecast>(
+        `${this.url}/${this.apiVersion}/forecast.json?q=${latitude},${longitude}&days=1&lang=pt&key=${enviroment.key}`
+      )
+      .pipe(
+        map((info) => [
+          {
+            uv: info.current.uv,
+            wind: info.current.wind_kph,
+            humidity: info.current.humidity,
+            visibility: info.current.vis_km,
+            feelsLike: info.current.feelslike_c,
+            chanceOfRain: info.forecast.forecastday[0].day.daily_chance_of_rain,
+            pressure: info.current.pressure_mb,
+            sunset: info.forecast.forecastday[0].astro.sunset,
+          },
+        ])
+      );
+  }
 }

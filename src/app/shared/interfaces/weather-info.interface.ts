@@ -21,6 +21,12 @@ export interface WeatherInitialInfo {
   icon: string;
 }
 
+export interface OtherWeatherInfo {
+  title: string;
+  value: string;
+  icon: string;
+}
+
 export interface Sys {
   type: number;
   id: number;

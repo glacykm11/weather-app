@@ -7,7 +7,10 @@
     [descricao]="weather.description"
   ></app-card-weather>
 
-  <app-today-forecast [todayForecasts]="todayForecasts"></app-today-forecast>
+  <app-today-forecast
+    *ngIf="!seeMoreButton"
+    [todayForecasts]="todayForecasts"
+  ></app-today-forecast>
 
   <app-air-conditions
     *ngIf="!seeMoreButton"
@@ -15,10 +18,14 @@
   ></app-air-conditions>
 
   <div class="cards-info" *ngIf="seeMoreButton">
-    <app-card-info></app-card-info>
-    <app-card-info></app-card-info>
-    <app-card-info></app-card-info>
-    <app-card-info></app-card-info>
-    <app-card-info></app-card-info>
+    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
+    <app-card-info
+      [title]="'teste'"
+      [value]="x[0].wind"
+      icon=""
+    ></app-card-info>
+    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
+    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
+    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
   </div>
 </div>

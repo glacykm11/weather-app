@@ -1,9 +1,9 @@
 <div class="container">
-    <div class="container__info">
-        <div class="container__info--wrapper">
-            <img class="container__info--icon" src="../../../../assets/images/uv-index-icon.svg" />
-            <span class="container__info--title">Índice UV</span>
-        </div>
-        <p class="container__info--value">3</p>
+  <div class="container__info">
+    <div class="container__info--wrapper">
+      <img class="container__info--icon" [src]="icon" />
+      <span class="container__info--title">{{ title }}</span>
     </div>
+    <p class="container__info--value">{{ value }}</p>
+  </div>
 </div>
