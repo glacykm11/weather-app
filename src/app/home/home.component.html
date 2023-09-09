@@ -18,14 +18,11 @@
   ></app-air-conditions>
 
   <div class="cards-info" *ngIf="seeMoreButton">
-    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
     <app-card-info
-      [title]="'teste'"
-      [value]="x[0].wind"
-      icon=""
+      *ngFor="let result of results"
+      [title]="result.title"
+      [value]="result.value"
+      [icon]="result.icon"
     ></app-card-info>
-    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
-    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
-    <app-card-info [title]="'teste'" [value]="x[0].uv" icon=""></app-card-info>
   </div>
 </div>

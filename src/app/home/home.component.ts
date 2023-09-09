@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherMapService } from '../shared/services/wheather-map/weather-map.service';
-import { Observable, take } from 'rxjs';
+import { Observable, map, take } from 'rxjs';
 import { TodayForecast } from '../shared/interfaces/weather-forecast.interface';
 import { Hour } from '../shared/interfaces/weather-api-forecast.interface';
 import { WeatherApiService } from '../shared/services/weather-api/weather-api.service';
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   public getOthersWeatherInfo$!: Observable<any>;
   private location!: Location;
   public x!: any;
+  public results!: any;
 
   constructor(
     private weatherMapService: WeatherMapService,
@@ -61,24 +62,34 @@ export class HomeComponent implements OnInit {
   teste(x: any) {
     let y: any = [];
     const [otherWeatherInfo] = x;
-    // {
-    //   chanceOfRain: 85;
-    //   feelsLike: 30.1;
-    //   humidity: 79;
-    //   pressure: 1012;
-    //   sunset: '05:57 PM';
-    //   uv: 1;
-    //   visibility: 10;
-    //   wind: 20.2
-    // }
-
-    const titles = ['title 1','title 2', 'title 3', 'title 4', 'title 5', 'title 6', 'title 7', 'title 8'];
-    const keys = Object.keys(otherWeatherInfo);
+    const titles = [
+      'ÍNDICE UV',
+      'VENTO',
+      'UMIDADE',
+      'VISIBILIDADE',
+      'SENSAÇÃO TÉRMICA',
+      'CHANCE DE CHUVA',
+      'PRESSÃO',
+      'PÔR DO SOL',
+    ];
     const values = Object.values(otherWeatherInfo);
-    console.log(keys, values)
-    const iconsPaths = ['icon 1','icon 2', 'icon 3', 'icon 4', 'icon 5', 'icon 6', 'icon 7', 'icon 8'] ;
-    // [{title: '', icon: '', value: ''}]
-    otherWeatherInfo
+    const iconsPaths = [
+      'assets/images/uv-index-icon.svg',
+      'assets/images/wind-icon.svg',
+      'assets/images/humidity-icon.svg',
+      'assets/images/visibility-icon.svg',
+      'assets/images/gauge-icon.svg',
+      'assets/images/chance-of-rain-icon.svg',
+      'assets/images/pressure-icon.svg',
+      'assets/images/sunset-icon.svg',
+    ];
+    this.results = titles.map((value, i) => {
+      return {
+        title: value.toUpperCase(),
+        value: values[i],
+        icon: iconsPaths[i],
+      };
+    });
   }
 
   private getOthersWeatherInfo() {}
